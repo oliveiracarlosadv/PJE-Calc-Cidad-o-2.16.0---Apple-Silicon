@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<installer-gui-script minSpecVersion="2">
+    <title>PJe-Calc Cidadão 2.16.0</title>
+    <welcome file="welcome.html" mime-type="text/html"/>
+    <conclusion file="conclusion.html" mime-type="text/html"/>
+    <options customize="never" require-scripts="false" hostArchitectures="x86_64,arm64"/>
+    <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="10.15"/>
+        </allowed-os-versions>
+    </volume-check>
+    <choices-outline>
+        <line choice="default">
+            <line choice="app"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="app" visible="false">
+        <pkg-ref id="br.jus.pjecalc.cidadao.pkg"/>
+    </choice>
+    <pkg-ref id="br.jus.pjecalc.cidadao.pkg" version="2.16.1" onConclusion="none" installKBytes="624181" updateKBytes="0">#app.pkg</pkg-ref>
+    <pkg-ref id="br.jus.pjecalc.cidadao.pkg">
+        <bundle-version>
+            <bundle CFBundleShortVersionString="80" CFBundleVersion="80" id="com.apple.JavaNativeFoundation" path="PJe-Calc Cidadao 2.16.0.app/Contents/Resources/jre-arm64/lib/JavaNativeFoundation.framework"/>
+            <bundle CFBundleShortVersionString="2.16.0" CFBundleVersion="2.16.0.1" id="br.jus.pjecalc.cidadao" path="PJe-Calc Cidadao 2.16.0.app"/>
+            <bundle id="br.jus.pjecalc.abrirnavegador" path="PJe-Calc Cidadao 2.16.0.app/Contents/Resources/pjecalc/navegador/mac/FirefoxPortable.app"/>
+        </bundle-version>
+    </pkg-ref>
+</installer-gui-script>

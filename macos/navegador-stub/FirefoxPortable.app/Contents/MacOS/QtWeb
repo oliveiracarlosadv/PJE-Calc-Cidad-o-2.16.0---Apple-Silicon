@@ -1,0 +1,5 @@
+#!/bin/bash
+# Se aberto diretamente, abre (ou traz para frente) a janela do PJe-Calc.
+INI="$(dirname "$0")/QtWebSettings/QtWeb.NET/QtWeb Internet Browser.ini"
+URL="$(grep '^home=' "$INI" | head -1 | cut -d= -f2-)"; URL="${URL:-http://localhost:9257/pjecalc}"
+exec "$(cd "$(dirname "$0")/../../../../.." && pwd)/.mac-bin/janela-pjecalc" abrir "$URL"

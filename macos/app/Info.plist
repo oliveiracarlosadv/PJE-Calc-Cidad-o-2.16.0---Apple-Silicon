@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>pt_BR</string>
+	<key>CFBundleDisplayName</key>
+	<string>PJe-Calc Cidadão 2.16.0</string>
+	<key>CFBundleExecutable</key>
+	<string>PJeCalc</string>
+	<key>CFBundleIconFile</key>
+	<string>PJe.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>br.jus.pjecalc.cidadao</string>
+	<key>CFBundleName</key>
+	<string>PJe-Calc Cidadão</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.16.0</string>
+	<key>CFBundleVersion</key>
+	<string>2.16.0.1</string>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>O PJe-Calc Cidadão precisa abrir, mostrar e fechar a janela do sistema no Chrome ou no Safari.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>

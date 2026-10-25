@@ -1,0 +1,4 @@
+*.pkg
+*.exe
+*.dmg
+.DS_Store

@@ -1,0 +1,88 @@
+#!/bin/bash
+# Uso: janela-pjecalc abrir|fechar [URL]
+# Abre o PJe-Calc numa janela própria (modo aplicativo) do Chrome que já está em uso,
+# ou numa janela nova do Safari se não houver Chrome. Se a janela já existir, só traz para frente.
+ACAO="$1"; URL="${2:-http://localhost:9257/pjecalc}"; BASE="http://localhost:9257/"
+rodando() { /usr/bin/pgrep -xq "$1"; }
+temChrome() { [ -d "/Applications/Google Chrome.app" ] || [ -d "$HOME/Applications/Google Chrome.app" ]; }
+
+chrome_focar() {  # retorna "ok" se achou a janela
+  /usr/bin/osascript <<OSA 2>/dev/null
+tell application id "com.google.Chrome"
+  repeat with w in windows
+    repeat with t in tabs of w
+      if URL of t starts with "$BASE" then
+        set index of w to 1
+        activate
+        return "ok"
+      end if
+    end repeat
+  end repeat
+end tell
+return ""
+OSA
+}
+safari_focar() {
+  /usr/bin/osascript <<OSA 2>/dev/null
+tell application id "com.apple.Safari"
+  repeat with w in windows
+    repeat with t in tabs of w
+      if URL of t starts with "$BASE" then
+        set current tab of w to t
+        set index of w to 1
+        activate
+        return "ok"
+      end if
+    end repeat
+  end repeat
+end tell
+return ""
+OSA
+}
+
+case "$ACAO" in
+  abrir)
+    if rodando "Google Chrome" && [ "$(chrome_focar)" = "ok" ]; then exit 0; fi
+    if rodando "Safari" && [ "$(safari_focar)" = "ok" ]; then exit 0; fi
+    if temChrome && /usr/bin/open -n -b com.google.Chrome --args --app="$URL" --no-default-browser-check 2>/dev/null; then
+      exit 0
+    fi
+    /usr/bin/osascript -e "tell application id \"com.apple.Safari\"" -e "make new document with properties {URL:\"$URL\"}" -e "activate" -e "end tell" >/dev/null 2>&1 \
+      || /usr/bin/open -b com.apple.Safari "$URL"
+    ;;
+  fechar)
+    if rodando "Google Chrome"; then
+      /usr/bin/osascript >/dev/null 2>&1 <<OSA
+tell application id "com.google.Chrome"
+  repeat with w in (windows as list)
+    set fechar to false
+    repeat with t in tabs of w
+      if URL of t starts with "$BASE" then set fechar to true
+    end repeat
+    if fechar then
+      if (count of tabs of w) is 1 then
+        close w
+      else
+        repeat with t in (tabs of w as list)
+          if URL of t starts with "$BASE" then close t
+        end repeat
+      end if
+    end if
+  end repeat
+end tell
+OSA
+    fi
+    if rodando "Safari"; then
+      /usr/bin/osascript >/dev/null 2>&1 <<OSA
+tell application id "com.apple.Safari"
+  repeat with w in (windows as list)
+    repeat with t in (tabs of w as list)
+      if URL of t starts with "$BASE" then close t
+    end repeat
+  end repeat
+end tell
+OSA
+    fi
+    ;;
+esac
+exit 0

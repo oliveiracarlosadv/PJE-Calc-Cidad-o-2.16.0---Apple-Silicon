@@ -1,3 +1,6 @@
+> **Atenção:** este documento descreve as releases antigas deste repositório (agosto e setembro de 2026), que exigiam Java instalado e um passo pelo Terminal.
+> Para a versão atual, com instalador e ícone liga/desliga, veja o [README](../README.md).
+
 # PjeCalc Cidadão para macOS
 
 ## Versão

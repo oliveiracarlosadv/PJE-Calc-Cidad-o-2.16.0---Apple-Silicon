@@ -1,0 +1,6 @@
+#!/bin/bash
+# O PJe-Calc executa: open <instalação>/navegador/mac/FirefoxPortable.app http://localhost:9257/pjecalc
+if [ $# -eq 2 ] && [[ "$1" == */navegador/mac/FirefoxPortable.app ]]; then
+  exec "$(dirname "$0")/janela-pjecalc" abrir "$2"
+fi
+exec /usr/bin/open "$@"

@@ -1,0 +1,12 @@
+#!/bin/bash
+# Coloca o ícone do PJe-Calc no Dock do usuário (equivale ao atalho na Área de Trabalho do Windows).
+APP="/Applications/PJe-Calc Cidadao 2.16.0.app"
+USUARIO=$(/usr/bin/stat -f %Su /dev/console)
+[ -z "$USUARIO" ] || [ "$USUARIO" = "root" ] && exit 0
+UID_U=$(/usr/bin/id -u "$USUARIO")
+if ! /bin/launchctl asuser "$UID_U" /usr/bin/sudo -u "$USUARIO" /usr/bin/defaults read com.apple.dock persistent-apps 2>/dev/null | /usr/bin/grep -q "PJe-Calc%20Cidadao%202.16.0.app"; then
+  /bin/launchctl asuser "$UID_U" /usr/bin/sudo -u "$USUARIO" /usr/bin/defaults write com.apple.dock persistent-apps -array-add \
+    "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file://${APP// /%20}/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>"
+  /bin/launchctl asuser "$UID_U" /usr/bin/killall Dock 2>/dev/null
+fi
+exit 0
