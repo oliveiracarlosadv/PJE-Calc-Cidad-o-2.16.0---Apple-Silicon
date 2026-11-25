@@ -117,3 +117,11 @@ Uma versão para Linux está planejada, no mesmo esquema da versão para Mac.
 - Os arquivos do PJe-Calc incluídos no instalador são os do instalador oficial para Windows, versão 2.16.0, sem modificações. O download oficial está na [página do PJe-Calc Cidadão no TRT8](https://www.trt8.jus.br/pjecalc-cidadao/instalando-o-pje-calc-cidadao).
 - O Java incluído é o [Azul Zulu 8](https://www.azul.com/downloads/?version=java-8-lts&package=jre-fx) (OpenJDK com JavaFX), distribuído sob a licença GPLv2 com Classpath Exception.
 - Use por sua conta e risco. Confira os resultados dos cálculos como faria com qualquer instalação do PJe-Calc.
+
+## Licença
+
+Código licenciado sob a [Licença MIT](LICENSE) — © 2026 Carlos Alexandre Albuquerque Oliveira. Você pode usar, copiar, modificar e distribuir, inclusive para fins comerciais, desde que mantenha o aviso de direitos autorais e a licença.
+
+O nome, a marca e o logotipo do projeto **não** estão incluídos na licença e não podem ser usados para sugerir endosso ou vínculo sem autorização.
+
+A Licença MIT cobre **apenas** os scripts e a documentação deste repositório. O PJe-Calc Cidadão é software da Justiça do Trabalho (CSJT) e não é redistribuído nem licenciado aqui.
