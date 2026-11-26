@@ -120,8 +120,6 @@ Uma versão para Linux está planejada, no mesmo esquema da versão para Mac.
 
 ## Licença
 
-Código licenciado sob a [Licença MIT](LICENSE) — © 2026 Carlos Alexandre Albuquerque Oliveira. Você pode usar, copiar, modificar e distribuir, inclusive para fins comerciais, desde que mantenha o aviso de direitos autorais e a licença.
+Este repositório **não tem licença de código aberto**. Os scripts e a documentação são de Carlos Alexandre Albuquerque Oliveira, com todos os direitos reservados: você pode consultar e usar para instalar o PJe-Calc no seu próprio Mac, mas não pode redistribuir nem republicar sem autorização.
 
-O nome, a marca e o logotipo do projeto **não** estão incluídos na licença e não podem ser usados para sugerir endosso ou vínculo sem autorização.
-
-A Licença MIT cobre **apenas** os scripts e a documentação deste repositório. O PJe-Calc Cidadão é software da Justiça do Trabalho (CSJT) e não é redistribuído nem licenciado aqui.
+O PJe-Calc Cidadão é software da Justiça do Trabalho (CSJT) e continua sujeito às regras dos seus titulares.
